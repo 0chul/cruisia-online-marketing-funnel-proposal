@@ -440,6 +440,92 @@ export const performanceFormulas = [
   'ROAS = (구매수 × AOV) / 예산'
 ];
 
+export const budgetScenarioPlans: BudgetScenario[] = [
+  {
+    tier: 'Low',
+    monthlyBudgetKRW: 5000000,
+    operatingPct: 50,
+    executionPct: 50,
+    mediaPctWithinExecution: 70,
+    productionPctWithinExecution: 30,
+    positioning: '고의도 검색 수요를 먼저 포착하고 전환 데이터를 확보하는 파일럿 구조',
+    operationsScope: [
+      '주 1회 운영 리포트와 검색어/소재 정리',
+      'GA4 전환 점검과 리타겟팅 세그먼트 최소 셋업',
+      '랜딩 핵심 카피와 CTA 문구 보정'
+    ],
+    channelMix: [
+      'Google 검색 광고',
+      '네이버 검색 광고',
+      'Meta 리타겟팅',
+      '브랜드 방어성 디스플레이 소액 운영'
+    ],
+    creativeScope: [
+      '카피라이팅 중심 메시지 설계',
+      '가격/혜택/신뢰 포인트 기반 이미지 배너 세트',
+      '기존 이미지 기반의 간단한 모션 컷 또는 슬라이드형 영상 1종 수준'
+    ],
+    note: '검색과 리타겟팅 위주로 효율을 검증하고, 제작은 정적 소재 중심으로 시작하는 구간입니다.'
+  },
+  {
+    tier: 'Medium',
+    monthlyBudgetKRW: 10000000,
+    operatingPct: 50,
+    executionPct: 50,
+    mediaPctWithinExecution: 70,
+    productionPctWithinExecution: 30,
+    positioning: '수요 포착과 신규 수요 생성의 균형을 맞추는 본격 테스트 단계',
+    operationsScope: [
+      '주간 성과 리뷰와 채널별 예산 재배분',
+      '퍼널 단계별 이벤트 모니터링과 카피 A/B 테스트',
+      '검색어, 세그먼트, 소재 회전 주기 운영'
+    ],
+    channelMix: [
+      'Google 검색 + RLSA',
+      '네이버 검색',
+      'Meta FB/IG Prospecting + 리타겟팅',
+      'YouTube Shorts',
+      'Google Display 리마케팅'
+    ],
+    creativeScope: [
+      '카피라이팅 프레임 2~3종 병행 테스트',
+      '채널별 이미지 배너 세트와 비교형 카드 뉴스 제작',
+      '숏폼 세로 영상 2~3종 제작 및 썸네일/후킹 문구 분화'
+    ],
+    note: '검색 성과를 유지하면서 Meta와 YouTube로 신규 유입을 넓히고, 숏폼 영상 테스트를 병행하는 구간입니다.'
+  },
+  {
+    tier: 'High',
+    monthlyBudgetKRW: 15000000,
+    operatingPct: 50,
+    executionPct: 50,
+    mediaPctWithinExecution: 70,
+    productionPctWithinExecution: 30,
+    positioning: '브랜드 수요 생성과 고관여 리타겟팅을 동시에 확장하는 스케일 단계',
+    operationsScope: [
+      '주간 리포트 + 월간 전략 리뷰 + 채널 확장 테스트',
+      '퍼널/세그먼트별 입찰과 빈도 제어 고도화',
+      'OTA/제휴 연동 성과 점검과 버티컬 매체 분리 운영'
+    ],
+    channelMix: [
+      'Google 검색 + RLSA',
+      '네이버 검색',
+      'Meta FB/IG 풀퍼널',
+      'YouTube Shorts + In-stream',
+      'TikTok',
+      'Blind/Remember 등 직장인 타깃 매체',
+      'Google Display 리마케팅',
+      'OTA/제휴 공동 프로모션'
+    ],
+    creativeScope: [
+      '세그먼트별 카피라이팅 패키지와 랜딩 메시지 동기화',
+      '정적 배너, 비교형 배너, 리타겟팅 전용 배너까지 다층 제작',
+      '전용 숏폼 영상과 설명형 브랜드 영상, 모션 그래픽 컷다운까지 포함한 영상 제작'
+    ],
+    note: '신규 수요 생성, 버티컬 확장, 영상 자산 축적까지 포함한 브랜드형 운영이 가능한 예산 구간입니다.'
+  }
+];
+
 export const timelinePhases: TimelineItem[] = [
   { phase: 'foundation', title: '트래킹 설계, GTM/GA4, 전환 API, UTM 규칙, 1차 UX 개선', startWeek: 1, durationWeeks: 3, deliverables: ['측정 구조 설계', '대시보드 정의', '체크아웃 진단'] },
   { phase: 'creative', title: '9:16 마스터 템플릿 제작과 SEO/초보자 콘텐츠 1차 발행', startWeek: 2, durationWeeks: 4, deliverables: ['숏폼 템플릿', '롱폼 스크립트', '초보자 콘텐츠 허브'] },

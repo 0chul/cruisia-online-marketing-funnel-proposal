@@ -2,7 +2,7 @@ import React from 'react';
 import { Compass } from 'lucide-react';
 import {
   abTestMatrix,
-  budgetScenarios,
+  budgetScenarioPlans,
   channelPlaybook,
   complianceChecklist,
   creativeSpecs,
@@ -90,7 +90,7 @@ const App: React.FC = () => (
       <CreativeSection tracks={creativeTracks} specs={creativeSpecs} abTests={abTestMatrix} />
       <UxSection layers={uxLayers} recommendations={uxRecommendations} />
       <MeasurementSection nodes={measurementStack} utmRules={utmRules} />
-      <BudgetSection scenarios={budgetScenarios} formulas={performanceFormulas} />
+      <BudgetSection scenarios={budgetScenarioPlans} formulas={performanceFormulas} />
       <RoadmapSection items={timelinePhases} />
       <ComplianceSection items={complianceChecklist} />
       <ClosingSection steps={nextSteps} prerequisiteData={prerequisiteData} />

@@ -1,5 +1,4 @@
 import React from 'react';
-import { Bar, BarChart, CartesianGrid, Cell, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
 import { BudgetScenario } from '../../types/proposal';
 import { SectionShell } from './SectionShell';
 
@@ -8,76 +7,140 @@ type BudgetSectionProps = {
   formulas: string[];
 };
 
-const budgetColors = ['#48d1c2', '#7dd3fc', '#f6d36b', '#0f172a'];
+const formatBudget = (value: number) => `${(value / 10000).toLocaleString()}만원`;
+
+const segmentLabels = [
+  { key: 'operations', label: '운영', className: 'budget-segment--operations' },
+  { key: 'media', label: '매체비', className: 'budget-segment--media' },
+  { key: 'production', label: '제작비', className: 'budget-segment--production' }
+] as const;
 
 export const BudgetSection: React.FC<BudgetSectionProps> = ({ scenarios, formulas }) => {
-  const chartData = scenarios.map((scenario) => ({
-    name: scenario.tier,
-    Awareness: scenario.awarenessPct,
-    Search: scenario.searchPct,
-    Retargeting: scenario.retargetingPct,
-    Experiment: scenario.experimentPct
-  }));
-
   return (
     <SectionShell
       id="budget"
       eyebrow="Budget Scenarios"
-      title="검색에만 몰지 않고, 신규 수요 생성과 회수 구조를 함께 예산에 반영해야 합니다"
-      description="크루즈는 신규 유입 비중이 높은 상품입니다. 검색만 늘리면 CPA가 뒤에서 터질 수 있기 때문에 awareness와 retargeting을 함께 가져가야 합니다."
+      title="예산은 운영과 집행을 분리해서 보고, 집행 안에서 매체비와 제작비를 다시 쪼개야 실제 실행안이 선명해집니다."
+      description="제안 예산은 모든 구간에서 운영과 집행을 1:1로 두고, 집행 예산 안에서는 매체비와 제작비를 7:3으로 설계했습니다. 즉 총액 기준으로는 운영 50%, 매체비 35%, 제작비 15% 구조입니다."
     >
-      <div className="chart-panel">
-        <ResponsiveContainer width="100%" height={320}>
-          <BarChart data={chartData}>
-            <CartesianGrid strokeDasharray="3 3" stroke="rgba(128, 158, 186, 0.18)" />
-            <XAxis dataKey="name" stroke="#94a3b8" />
-            <YAxis stroke="#94a3b8" />
-            <Tooltip
-              contentStyle={{
-                backgroundColor: '#08111f',
-                border: '1px solid rgba(125, 211, 252, 0.2)',
-                borderRadius: '16px',
-                color: '#f8fafc'
-              }}
-            />
-            <Bar dataKey="Awareness" stackId="a" radius={[0, 0, 10, 10]}>
-              {chartData.map((_, index) => (
-                <Cell key={`awareness-${index}`} fill={budgetColors[0]} />
-              ))}
-            </Bar>
-            <Bar dataKey="Search" stackId="a">
-              {chartData.map((_, index) => (
-                <Cell key={`search-${index}`} fill={budgetColors[1]} />
-              ))}
-            </Bar>
-            <Bar dataKey="Retargeting" stackId="a">
-              {chartData.map((_, index) => (
-                <Cell key={`retargeting-${index}`} fill={budgetColors[2]} />
-              ))}
-            </Bar>
-            <Bar dataKey="Experiment" stackId="a" radius={[10, 10, 0, 0]}>
-              {chartData.map((_, index) => (
-                <Cell key={`experiment-${index}`} fill={budgetColors[3]} />
-              ))}
-            </Bar>
-          </BarChart>
-        </ResponsiveContainer>
+      <div className="budget-architecture">
+        <div className="budget-architecture__summary">
+          <span className="section-kicker">Budget Structure</span>
+          <h3>운영 50% / 집행 50%</h3>
+          <p>집행 예산은 다시 매체비 70%, 제작비 30%로 분해합니다. 퍼포먼스 운영 인력과 분석 리소스를 충분히 확보하면서도, 실제 집행과 제작 품질을 동시에 관리하기 위한 구조입니다.</p>
+        </div>
+
+        <div className="budget-architecture__legend">
+          {segmentLabels.map((segment) => (
+            <div className="budget-legend" key={segment.key}>
+              <span className={`budget-legend__dot ${segment.className}`} />
+              <span>{segment.label}</span>
+            </div>
+          ))}
+        </div>
+
+        <div className="budget-architecture__ratios">
+          <div className="budget-ratio-card">
+            <strong>총액 기준</strong>
+            <p>운영 50% / 매체비 35% / 제작비 15%</p>
+          </div>
+          <div className="budget-ratio-card">
+            <strong>집행 내부 비중</strong>
+            <p>매체비 70% / 제작비 30%</p>
+          </div>
+        </div>
       </div>
 
-      <div className="stack-grid stack-grid--three">
-        {scenarios.map((scenario) => (
-          <article className="glass-card" key={scenario.tier}>
-            <span className="section-kicker">{scenario.tier}</span>
-            <h3>₩{scenario.monthlyBudgetKRW.toLocaleString()}</h3>
-            <ul className="detail-list">
-              <li>Awareness {scenario.awarenessPct}%</li>
-              <li>Search {scenario.searchPct}%</li>
-              <li>Retargeting {scenario.retargetingPct}%</li>
-              <li>Experiment {scenario.experimentPct}%</li>
-            </ul>
-            <p>{scenario.note}</p>
-          </article>
-        ))}
+      <div className="budget-scenario-grid">
+        {scenarios.map((scenario) => {
+          const operatingPct = scenario.operatingPct ?? 50;
+          const executionPct = scenario.executionPct ?? 50;
+          const mediaPctWithinExecution = scenario.mediaPctWithinExecution ?? 70;
+          const productionPctWithinExecution = scenario.productionPctWithinExecution ?? 30;
+
+          const operatingAmount = scenario.monthlyBudgetKRW * (operatingPct / 100);
+          const executionAmount = scenario.monthlyBudgetKRW * (executionPct / 100);
+          const mediaAmount = executionAmount * (mediaPctWithinExecution / 100);
+          const productionAmount = executionAmount * (productionPctWithinExecution / 100);
+          const mediaPctOfTotal = executionPct * (mediaPctWithinExecution / 100);
+          const productionPctOfTotal = executionPct * (productionPctWithinExecution / 100);
+
+          return (
+            <article className="budget-scenario-card" key={scenario.tier}>
+              <div className="budget-scenario-card__header">
+                <div>
+                  <span className="section-kicker">{scenario.tier}</span>
+                  <h3>{formatBudget(scenario.monthlyBudgetKRW)}</h3>
+                </div>
+                <span className="status-pill status-pill--muted">{scenario.positioning}</span>
+              </div>
+
+              <div className="budget-slimbar" aria-label={`${scenario.tier} budget structure`}>
+                <div
+                  className="budget-segment budget-segment--operations"
+                  style={{ width: `${operatingPct}%` }}
+                />
+                <div
+                  className="budget-segment budget-segment--media"
+                  style={{ width: `${mediaPctOfTotal}%` }}
+                />
+                <div
+                  className="budget-segment budget-segment--production"
+                  style={{ width: `${productionPctOfTotal}%` }}
+                />
+              </div>
+
+              <div className="budget-scenario-card__amounts">
+                <div className="budget-amount-card">
+                  <span>운영</span>
+                  <strong>{formatBudget(operatingAmount)}</strong>
+                  <p>{operatingPct}%</p>
+                </div>
+                <div className="budget-amount-card">
+                  <span>매체비</span>
+                  <strong>{formatBudget(mediaAmount)}</strong>
+                  <p>총액의 {mediaPctOfTotal}%</p>
+                </div>
+                <div className="budget-amount-card">
+                  <span>제작비</span>
+                  <strong>{formatBudget(productionAmount)}</strong>
+                  <p>총액의 {productionPctOfTotal}%</p>
+                </div>
+              </div>
+
+              <div className="budget-scenario-card__detail">
+                <div className="budget-detail-block">
+                  <h4>운영 범위</h4>
+                  <ul className="detail-list">
+                    {(scenario.operationsScope ?? []).map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="budget-detail-block">
+                  <h4>집행 매체</h4>
+                  <ul className="detail-list">
+                    {(scenario.channelMix ?? []).map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div className="budget-detail-block">
+                  <h4>광고 소재 수준</h4>
+                  <ul className="detail-list">
+                    {(scenario.creativeScope ?? []).map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+
+              <p>{scenario.note}</p>
+            </article>
+          );
+        })}
       </div>
 
       <div className="formula-panel">

@@ -70,10 +70,18 @@ export type CreativeTrack = {
 export type BudgetScenario = {
   tier: 'Low' | 'Medium' | 'High';
   monthlyBudgetKRW: number;
-  awarenessPct: number;
-  searchPct: number;
-  retargetingPct: number;
-  experimentPct: number;
+  awarenessPct?: number;
+  searchPct?: number;
+  retargetingPct?: number;
+  experimentPct?: number;
+  operatingPct?: number;
+  executionPct?: number;
+  mediaPctWithinExecution?: number;
+  productionPctWithinExecution?: number;
+  positioning?: string;
+  operationsScope?: string[];
+  channelMix?: string[];
+  creativeScope?: string[];
   note: string;
 };
 
