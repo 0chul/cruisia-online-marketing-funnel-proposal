@@ -25,7 +25,7 @@ html {
 
 body {
   margin: 0;
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: 'Pretendard', sans-serif;
   background:
     radial-gradient(circle at 20% 20%, rgba(73, 216, 197, 0.12), transparent 28%),
     radial-gradient(circle at 85% 15%, rgba(125, 211, 252, 0.1), transparent 30%),
@@ -107,7 +107,7 @@ select {
 .section-header h2,
 .glass-card--cta h3,
 .stat-card__value {
-  font-family: 'Cormorant Garamond', serif;
+  font-family: 'Pretendard', sans-serif;
 }
 
 .proposal-brand strong {
