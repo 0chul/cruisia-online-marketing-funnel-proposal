@@ -1,7 +1,13 @@
+export type SourceReference = {
+  label: string;
+  url: string;
+};
+
 export type MarketStat = {
   label: string;
   value: string;
   detail: string;
+  sources?: SourceReference[];
 };
 
 export type FunnelStageId =
@@ -98,6 +104,7 @@ export type HeroSummary = {
 export type ValueProp = {
   title: string;
   description: string;
+  sources?: SourceReference[];
 };
 
 export type CertaintyDriver = {
@@ -110,6 +117,7 @@ export type PositioningPoint = {
   x: number;
   y: number;
   description: string;
+  sources?: SourceReference[];
 };
 
 export type EventStep = {

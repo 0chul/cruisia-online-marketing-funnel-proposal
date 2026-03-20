@@ -33,40 +33,106 @@ export const heroSummary: HeroSummary = {
 };
 
 export const marketStats: MarketStat[] = [
-  { label: '신규 이용자', value: '31%', detail: '최근 2년 내 first-time 비중이 높아 교육형 콘텐츠가 필수입니다.' },
-  { label: '40세 미만', value: '36%', detail: '크루즈가 고연령 여행이라는 고정관념을 깨는 타깃 확장 근거입니다.' },
-  { label: '1년+ 선예약', value: '11%', detail: '장기 고려 구간에 대응하는 리드 너처링과 가격 알림 전략이 필요합니다.' },
-  { label: '다세대 동행', value: '28%', detail: '가족·동반 구조별 메시지와 세그먼트 크리에이티브를 분리해야 합니다.' }
+  {
+    label: '신규 이용자',
+    value: '31%',
+    detail: '최근 2년 내 신규 크루즈 이용자 비중이 높아 초보자 교육형 콘텐츠가 퍼널 초반에 반드시 필요합니다.',
+    sources: [{ label: 'CLIA State of the Cruise Industry Report 2025', url: 'https://cruising.org/sites/default/files/2025-07/State%20of%20the%20Cruise%20Industry%20Report%202025.pdf' }]
+  },
+  {
+    label: '40세 미만',
+    value: '36%',
+    detail: '젊어지는 수요 구조는 크루즈가 중장년 전용 여행이라는 인식을 깨는 핵심 근거입니다.',
+    sources: [{ label: 'CLIA State of the Cruise Industry Report 2025', url: 'https://cruising.org/sites/default/files/2025-07/State%20of%20the%20Cruise%20Industry%20Report%202025.pdf' }]
+  },
+  {
+    label: '1년+ 선예약',
+    value: '11%',
+    detail: '장기 고려 구간이 존재하므로 검색 이후의 리드 너처링, 가격 알림, 리타겟팅 체계가 중요합니다.',
+    sources: [{ label: 'CLIA State of the Cruise Industry Report 2025', url: 'https://cruising.org/sites/default/files/2025-07/State%20of%20the%20Cruise%20Industry%20Report%202025.pdf' }]
+  },
+  {
+    label: '다세대 동행',
+    value: '28%',
+    detail: '가족과 다세대 여행 수요가 높아 세그먼트별 메시지와 광고 소재를 분리 설계해야 합니다.',
+    sources: [{ label: 'CLIA State of the Cruise Industry Report 2025', url: 'https://cruising.org/sites/default/files/2025-07/State%20of%20the%20Cruise%20Industry%20Report%202025.pdf' }]
+  }
 ];
 
 export const valueProps: ValueProp[] = [
   {
     title: '실시간 검색·비교·예약',
-    description: '전 세계 크루즈 공실 데이터를 받아 재고·가격·가능 객실을 즉시 비교할 수 있는 검색 엔진형 OTA 포지션.'
+    description: '전 세계 크루즈 재고를 실시간으로 조회하고 비교해 바로 예약할 수 있는 검색 엔진형 OTA 포지션입니다.',
+    sources: [
+      { label: 'Cruisia 공식 사이트', url: 'https://www.cruisia.co.kr/' },
+      { label: '연합뉴스 출시 기사', url: 'https://www.yna.co.kr/view/AKR20250508152700542' }
+    ]
   },
   {
     title: '국내 결제와 가격 투명성',
-    description: '국내 정산 기반과 총액/불포함 비용 안내를 통해 전환의 마지막 장벽인 불확실성을 줄이는 구조.'
+    description: '국내 정산 기반과 수수료 구조 단순화 메시지는 구매 직전의 불안 해소에 직접 연결됩니다.',
+    sources: [
+      { label: 'Cruisia 공식 사이트', url: 'https://www.cruisia.co.kr/' },
+      { label: '연합뉴스 출시 기사', url: 'https://www.yna.co.kr/view/AKR20250508152700542' }
+    ]
   },
   {
-    title: 'B2B 유통 확장성',
-    description: '여행사, OTA, 복지 채널과 연동 가능한 재고 플랫폼으로서 제휴형 매출 성장 트랙까지 설계할 수 있습니다.'
+    title: 'B2B 제휴 확장성',
+    description: '여행사·OTA와의 연계를 통해 D2C뿐 아니라 재고 유통 플랫폼으로도 확장 가능한 구조입니다.',
+    sources: [{ label: '노랑풍선 제휴 기사', url: 'https://m.travelinfo.co.kr/cmm/index_news.html?BD_CD=NEWS&MODE=view&MSEQ=60517&b_uid=3&m_uid=4' }]
   }
 ];
 
 export const certaintyDrivers: CertaintyDriver[] = [
-  { label: '원하는 일정', detail: '날짜와 항로를 실제로 예약 가능한 상태로 확인할 수 있어야 합니다.' },
-  { label: '원하는 선실', detail: '카테고리와 잔여 가능 여부가 즉시 검증되어야 합니다.' },
-  { label: '합리적 총액', detail: '필수 비용과 현지 지불 항목이 한 화면에서 분리되어야 합니다.' },
-  { label: '취소·환불 신뢰', detail: '정책 요약이 광고와 랜딩 전반에서 일관되게 보여야 합니다.' },
-  { label: '즉시 확정 경험', detail: '실시간이 만든 확실성이 구매 이유가 되도록 UX로 증명해야 합니다.' }
+  { label: '원하는 일정', detail: '내가 원하는 항로와 날짜에 실제 예약 가능한지 즉시 확인되어야 합니다.' },
+  { label: '원하는 선실', detail: '객실 카테고리와 가능 여부가 실시간으로 검증되어야 합니다.' },
+  { label: '합리적인 총액', detail: '필수 비용과 현지 지불 항목이 한 화면에서 분리 표기되어야 합니다.' },
+  { label: '취소·환불 신뢰', detail: '광고와 랜딩 전반에서 핵심 정책이 같은 문장으로 이어져야 합니다.' },
+  { label: '즉시 확정 경험', detail: '실시간이라는 말이 아니라, 즉시 확정되는 인터페이스로 신뢰를 증명해야 합니다.' }
 ];
 
 export const positioningPoints: PositioningPoint[] = [
-  { name: 'Cruisia', x: 82, y: 78, description: '실시간 재고 기반 탐색성과 구매 확실성을 동시에 강조하는 포지션.' },
-  { name: '크루즈 전문 플랫폼형', x: 70, y: 58, description: '실시간 예약을 일부 제공하지만 브랜드 스토리 차별화가 제한됩니다.' },
-  { name: '대형 여행사/패키지형', x: 38, y: 74, description: '신뢰는 강하지만 탐색 속도와 실시간 비교 측면에서는 마찰이 큽니다.' },
-  { name: '선사 직판형', x: 56, y: 36, description: '단일 브랜드 경험은 좋지만 다선사 비교라는 강점을 제공하지 못합니다.' }
+  {
+    name: 'Cruisia',
+    x: 82,
+    y: 78,
+    description: '실시간 재고 기반 탐색성과 구매 확실성을 동시에 강조하는 포지션입니다.',
+    sources: [
+      { label: 'Cruisia 공식 사이트', url: 'https://www.cruisia.co.kr/' },
+      { label: '연합뉴스 출시 기사', url: 'https://www.yna.co.kr/view/AKR20250508152700542' }
+    ]
+  },
+  {
+    name: '크루즈 전문 플랫폼형',
+    x: 70,
+    y: 58,
+    description: '실시간 예약을 일부 제공하지만 비교 범위와 브랜드 차별화는 제한될 수 있습니다.',
+    sources: [{ label: '크루즈TMK 기사', url: 'https://www.ktnbm.co.kr/news_view.html?news_seq=3810' }]
+  },
+  {
+    name: '대형 여행사/패키지형',
+    x: 38,
+    y: 74,
+    description: '신뢰는 강하지만 실시간 비교와 바텀업 탐색 측면에서는 마찰이 큽니다.',
+    sources: [{ label: '하나투어 크루즈 카테고리', url: 'https://www.hanatour.com/package/cruise' }]
+  },
+  {
+    name: '선사 직판형',
+    x: 56,
+    y: 36,
+    description: '단일 브랜드 경험은 좋지만 다선사 비교라는 Cruisia의 장점은 제공하지 못합니다.',
+    sources: [{ label: 'MSC Cruises Korea', url: 'https://www.msccruises.co.kr/' }]
+  }
+];
+
+export const earlyMarketSources = [
+  { label: 'CLIA State of the Cruise Industry Report 2025', url: 'https://cruising.org/sites/default/files/2025-07/State%20of%20the%20Cruise%20Industry%20Report%202025.pdf' },
+  { label: 'Cruisia 공식 사이트', url: 'https://www.cruisia.co.kr/' },
+  { label: '연합뉴스 출시 기사', url: 'https://www.yna.co.kr/view/AKR20250508152700542' },
+  { label: '노랑풍선 제휴 기사', url: 'https://m.travelinfo.co.kr/cmm/index_news.html?BD_CD=NEWS&MODE=view&MSEQ=60517&b_uid=3&m_uid=4' },
+  { label: '크루즈TMK 기사', url: 'https://www.ktnbm.co.kr/news_view.html?news_seq=3810' },
+  { label: '하나투어 크루즈 카테고리', url: 'https://www.hanatour.com/package/cruise' },
+  { label: 'MSC Cruises Korea', url: 'https://www.msccruises.co.kr/' }
 ];
 
 export const funnelStages: FunnelStage[] = [
@@ -77,7 +143,7 @@ export const funnelStages: FunnelStage[] = [
     kpis: ['Reach', 'CPM', 'Video Views', '브랜드 검색량'],
     channels: ['FB/IG', 'YouTube Shorts', 'TikTok', 'PR', '전문 아티클'],
     message: '크루즈는 멀고 복잡한 여행이 아니라 여러 도시를 한 번에 경험하는 효율적인 프리미엄 이동 방식입니다.',
-    deliverables: ['숏폼 영상', 'UGC형 소재', '브랜드/PR 에셋', '초보자용 콘텐츠 허브'],
+    deliverables: ['숏폼 영상', 'UGC형 소재', '브랜드 PR 에셋', '초보자용 콘텐츠 허브'],
     userMindset: '“크루즈는 나와 상관없는 여행 아닌가?”',
     landingFocus: '브랜드 스토리와 초보자 가이드를 통해 탐색 진입을 유도',
     assetTypes: ['6~15초 숏폼', '세로 모션 그래픽', '소셜 스와이프 카드']
@@ -91,7 +157,7 @@ export const funnelStages: FunnelStage[] = [
     message: '크루즈 초보자도 선사, 선실, 항로를 쉽게 비교할 수 있다는 학습 경험을 제공합니다.',
     deliverables: ['초보자 가이드', '항로별 랜딩', '비교 콘텐츠', '검색 광고 카피'],
     userMindset: '“나도 탈 수 있을 것 같은데, 어디서부터 봐야 하지?”',
-    landingFocus: '검색/비교로 이어지는 정보 랜딩과 콘텐츠 허브 구성',
+    landingFocus: '검색과 비교로 이어지는 정보 랜딩과 콘텐츠 허브 구성',
     assetTypes: ['60초 설명 영상', '검색 랜딩', '비교형 인포그래픽']
   },
   {
@@ -101,7 +167,7 @@ export const funnelStages: FunnelStage[] = [
     kpis: ['view_item', 'save', 'begin_checkout', '재방문율'],
     channels: ['Google Ads Search', 'Naver Search', 'Meta Retargeting', 'OTA 제휴'],
     message: '너무 많은 선택지를 대신 구조화해 선사, 일정, 선실, 포함사항을 빠르게 판단하게 만듭니다.',
-    deliverables: ['비교표', '카탈로그형 소재', '항로별 상세 페이지', '저장/가격 알림 기능'],
+    deliverables: ['비교표', '카탈로그형 소재', '항로별 상세 페이지', '저장·가격 알림 기능'],
     userMindset: '“어디, 언제, 어떤 선박이 나한테 맞지?”',
     landingFocus: '필터, 정렬, 비교, 저장 기능이 중심인 검색 결과 경험',
     assetTypes: ['카탈로그 카드', '비교형 캐러셀', '목적지 가이드']
@@ -155,10 +221,10 @@ export const kpiFramework: KpiRow[] = [
 
 export const eventSteps: EventStep[] = [
   { name: 'view_item_list', description: '검색 결과와 항로 리스트를 본 순간부터 탐색 데이터를 축적합니다.' },
-  { name: 'view_item', description: '선사/선박/일정/선실 상세 진입을 확인합니다.' },
+  { name: 'view_item', description: '선사·선박·일정·선실 상세 진입을 확인합니다.' },
   { name: 'begin_checkout', description: '탑승자 정보 입력 시작을 전환 직전 신호로 잡습니다.' },
   { name: 'add_payment_info', description: '결제 수단 선택과 마지막 확신 구간을 측정합니다.' },
-  { name: 'purchase', description: '예약/결제 확정을 핵심 비즈니스 이벤트로 기록합니다.' }
+  { name: 'purchase', description: '예약·결제 확정을 핵심 비즈니스 이벤트로 기록합니다.' }
 ];
 
 export const customEvents = ['cruise_search', 'date_selected', 'cabin_selected', 'price_alert_set'];
@@ -175,7 +241,7 @@ export const channelPlaybook: ChannelPlay[] = [
     stageIds: ['awareness', 'interest', 'consideration', 'intent'],
     audience: '30~50대 가족 여행층, 초보 크루즈 탐색층, 재방문 사용자',
     tone: '프리미엄이지만 설명 친화적, 과장보다 확실성 중심',
-    recommendedAssets: ['6~15초 훅 영상', '카탈로그형 캐러셀', '정책/총액 요약 카드'],
+    recommendedAssets: ['6~15초 훅 영상', '카탈로그형 캐러셀', '정책·총액 요약 카드'],
     measurementFocus: ['Search', 'ViewContent', 'InitiateCheckout', 'Purchase'],
     operatingRisk: '픽셀 단독 학습 의존 시 신호 품질이 흔들릴 수 있습니다.'
   },
@@ -220,7 +286,7 @@ export const channelPlaybook: ChannelPlay[] = [
     stageIds: ['consideration', 'intent', 'purchase'],
     audience: '비교·가격 확인·예약 직전의 고의도 검색층',
     tone: '구체적이고 명확한 검색 의도 대응형',
-    recommendedAssets: ['RSA 카피', '가격/정책 랜딩', '체크아웃 리마케팅'],
+    recommendedAssets: ['RSA 카피', '가격·정책 랜딩', '체크아웃 리마케팅'],
     measurementFocus: ['purchase', 'CPA', 'ROAS', '검색어 품질'],
     operatingRisk: '전환 이벤트를 purchase 하나만 두면 학습 속도가 지나치게 느립니다.'
   },
@@ -248,7 +314,7 @@ export const channelPlaybook: ChannelPlay[] = [
     campaignObjectives: ['Display Retargeting', 'Search RLSA'],
     setupPoints: ['이탈 단계별 세그먼트 구성', '빈도 제어', '검색 재노출 조건 설계'],
     stageIds: ['consideration', 'intent', 'purchase'],
-    audience: '검색/비교/체크아웃 이탈자',
+    audience: '검색·비교·체크아웃 이탈자',
     tone: '재설명보다 확신 강화 중심',
     recommendedAssets: ['가격 포함내역 배너', '정책형 배너', '관심 항로 재노출'],
     measurementFocus: ['세그먼트별 복귀율', '재방문 후 purchase'],
@@ -302,86 +368,24 @@ export const channelPlaybook: ChannelPlay[] = [
 ];
 
 export const retargetingSequence: RetargetingStep[] = [
-  {
-    window: '1~3일',
-    audience: 'view_item 또는 cabin_selected 사용자',
-    message: '해당 일정의 핵심 포인트 3개와 취소/환불 요약을 바로 제시해 첫 이탈 이유를 차단합니다.'
-  },
-  {
-    window: '4~14일',
-    audience: 'begin_checkout 이탈자',
-    message: '총액 투명성, 포함 내역, 고객센터 연결, 예약 확정 프로세스를 전면에 내세웁니다.'
-  },
-  {
-    window: '15~60일',
-    audience: '관심 항로 저장 또는 장기 미전환 사용자',
-    message: '기항지 가이드, 시즌별 추천, 가격 알림 기반 콘텐츠로 재관심을 유도합니다.'
-  }
+  { window: '1~3일', audience: 'view_item 또는 cabin_selected 사용자', message: '해당 일정의 핵심 포인트 3개와 취소/환불 요약을 바로 제시해 첫 이탈 이유를 차단합니다.' },
+  { window: '4~14일', audience: 'begin_checkout 이탈자', message: '총액 투명성, 포함 내역, 고객센터 연결, 예약 확정 프로세스를 전면에 내세웁니다.' },
+  { window: '15~60일', audience: '관심 항로 저장 또는 장기 미전환 사용자', message: '기항지 가이드, 시즌별 추천, 가격 알림 기반 콘텐츠로 재관심을 유도합니다.' }
 ];
 
 export const creativeTracks: CreativeTrack[] = [
-  {
-    name: '초보자 트랙',
-    audience: '크루즈가 낯선 first-time 탐색층',
-    angles: ['크루즈 용어 쉽게 설명', '선실/항로/선사 차이 정리', '처음 예약할 때 보는 체크리스트'],
-    assetTypes: ['Shorts', '가이드 랜딩', 'FAQ 카드']
-  },
-  {
-    name: '가성비 트랙',
-    audience: '총 여행 효율과 가격 구조를 따지는 실속형 수요',
-    angles: ['한 번 결제, 여러 도시 체크인', '호텔 이동 비용 절감', '포함사항 기준 총액 비교'],
-    assetTypes: ['비교형 인포그래픽', '카탈로그 광고', '총액 안내 카드']
-  },
-  {
-    name: '가족/다세대 트랙',
-    audience: '가족, 부모 동반, 단체 여정을 고민하는 세그먼트',
-    angles: ['3~5세대가 함께 즐기는 구조', '이동 피로를 줄이는 여행 방식', '세대별 만족 포인트 정리'],
-    assetTypes: ['가족형 영상', '일정 시뮬레이션', '설명회 리드 광고']
-  },
-  {
-    name: '솔로/커플 트랙',
-    audience: '허니문, 커플, 프리미엄 휴식 수요',
-    angles: ['감성/휴식', '특별한 기념일', '호텔보다 높은 몰입감'],
-    assetTypes: ['프리미엄 영상', '감성형 배너', '직장인 플랫폼 광고']
-  }
+  { name: '초보자 트랙', audience: '크루즈가 낯선 first-time 탐색층', angles: ['크루즈 용어 쉽게 설명', '선실/항로/선사 차이 정리', '처음 예약할 때 보는 체크리스트'], assetTypes: ['Shorts', '가이드 랜딩', 'FAQ 카드'] },
+  { name: '가성비 트랙', audience: '총 여행 효율과 가격 구조를 따지는 실속형 수요', angles: ['한 번 결제, 여러 도시 체크인', '호텔 이동 비용 절감', '포함사항 기준 총액 비교'], assetTypes: ['비교형 인포그래픽', '카탈로그 광고', '총액 안내 카드'] },
+  { name: '가족/다세대 트랙', audience: '가족, 부모 동반, 단체 여정을 고민하는 세그먼트', angles: ['3~5세대가 함께 즐기는 구조', '이동 피로를 줄이는 여행 방식', '세대별 만족 포인트 정리'], assetTypes: ['가족형 영상', '일정 시뮬레이션', '설명회 리드 광고'] },
+  { name: '솔로/커플 트랙', audience: '허니문, 커플, 프리미엄 휴식 수요', angles: ['감성/휴식', '특별한 기념일', '호텔보다 높은 몰입감'], assetTypes: ['프리미엄 영상', '감성형 배너', '직장인 플랫폼 광고'] }
 ];
 
 export const creativeSpecs: CreativeSpec[] = [
-  {
-    channel: 'Meta',
-    imageFormat: '1:1, 4:5, 9:16',
-    videoFormat: '9:16 마스터 후 크롭',
-    length: '지면별 상이 / 첫 2초 훅이 핵심',
-    testUnit: '훅, 오퍼 문구, 가격 표기, CTA'
-  },
-  {
-    channel: 'YouTube Shorts',
-    imageFormat: 'N/A',
-    videoFormat: '세로형',
-    length: '60초 미만 권장',
-    testUnit: '오프닝 5초, 자막 유무, 실사용 화면'
-  },
-  {
-    channel: 'YouTube In-stream',
-    imageFormat: 'N/A',
-    videoFormat: '16:9 기본',
-    length: '15초 / 30초 / 60초 / 120초+',
-    testUnit: '길이 버전, 엔딩 CTA, 설명 깊이'
-  },
-  {
-    channel: 'TikTok',
-    imageFormat: '썸네일 포함',
-    videoFormat: '9:16',
-    length: 'In-Feed 최적화형',
-    testUnit: '훅, 자막, Spark/UGC 여부'
-  },
-  {
-    channel: '네이버 검색',
-    imageFormat: '텍스트 중심',
-    videoFormat: 'N/A',
-    length: '검수 기준 준수',
-    testUnit: '헤드라인 가치 제안, 확장소재'
-  }
+  { channel: 'Meta', imageFormat: '1:1, 4:5, 9:16', videoFormat: '9:16 마스터 후 크롭', length: '지면별 상이 / 첫 2초 훅이 핵심', testUnit: '훅, 오퍼 문구, 가격 표기, CTA' },
+  { channel: 'YouTube Shorts', imageFormat: 'N/A', videoFormat: '세로형', length: '60초 미만 권장', testUnit: '오프닝 5초, 자막 유무, 실사용 화면' },
+  { channel: 'YouTube In-stream', imageFormat: 'N/A', videoFormat: '16:9 기본', length: '15초 / 30초 / 60초 / 120초+', testUnit: '길이 버전, 엔딩 CTA, 설명 깊이' },
+  { channel: 'TikTok', imageFormat: '썸네일 포함', videoFormat: '9:16', length: 'In-Feed 최적화형', testUnit: '훅, 자막, Spark/UGC 여부' },
+  { channel: '네이버 검색', imageFormat: '텍스트 중심', videoFormat: 'N/A', length: '검수 기준 준수', testUnit: '헤드라인 가치 제안, 확장소재' }
 ];
 
 export const abTestMatrix: AbTestItem[] = [
@@ -392,21 +396,9 @@ export const abTestMatrix: AbTestItem[] = [
 ];
 
 export const uxLayers: UxLayer[] = [
-  {
-    title: '정보 랜딩',
-    focus: 'Interest',
-    detail: '크루즈 초보자 가이드와 목적지 인사이트를 제공한 뒤 검색 경험으로 자연스럽게 연결합니다.'
-  },
-  {
-    title: '검색 결과 랜딩',
-    focus: 'Consideration',
-    detail: '필터, 정렬, 비교, 저장, 가격 알림이 중심이며 선택 피로를 줄이는 UI가 핵심입니다.'
-  },
-  {
-    title: '상품 상세/결제 랜딩',
-    focus: 'Intent → Purchase',
-    detail: '총액, 불포함 비용, 취소/환불 조건, 업데이트 시각, 확정 흐름을 한 화면에서 검증하게 합니다.'
-  }
+  { title: '정보 랜딩', focus: 'Interest', detail: '크루즈 초보자 가이드와 목적지 인사이트를 제공한 뒤 검색 경험으로 자연스럽게 연결합니다.' },
+  { title: '검색 결과 랜딩', focus: 'Consideration', detail: '필터, 정렬, 비교, 저장, 가격 알림이 중심이며 선택 피로를 줄이는 UI가 핵심입니다.' },
+  { title: '상품 상세/결제 랜딩', focus: 'Intent → Purchase', detail: '총액, 불포함 비용, 취소/환불 조건, 업데이트 시각, 확정 흐름을 한 화면에서 검증하게 합니다.' }
 ];
 
 export const uxRecommendations: UxRecommendation[] = [
@@ -436,33 +428,9 @@ export const utmRules = [
 ];
 
 export const budgetScenarios: BudgetScenario[] = [
-  {
-    tier: 'Low',
-    monthlyBudgetKRW: 10000000,
-    awarenessPct: 25,
-    searchPct: 45,
-    retargetingPct: 20,
-    experimentPct: 10,
-    note: '검색 비중이 높지만 신규 수요 발굴을 완전히 포기하지 않는 파일럿 구조.'
-  },
-  {
-    tier: 'Medium',
-    monthlyBudgetKRW: 30000000,
-    awarenessPct: 30,
-    searchPct: 40,
-    retargetingPct: 20,
-    experimentPct: 10,
-    note: '퍼널 전 단계 학습을 병행하며 크리에이티브 테스트와 검색 수확을 균형 있게 운영.'
-  },
-  {
-    tier: 'High',
-    monthlyBudgetKRW: 100000000,
-    awarenessPct: 35,
-    searchPct: 35,
-    retargetingPct: 20,
-    experimentPct: 10,
-    note: '브랜드 수요 확장과 채널 다각화를 동시에 추진하는 스케일 단계.'
-  }
+  { tier: 'Low', monthlyBudgetKRW: 10000000, awarenessPct: 25, searchPct: 45, retargetingPct: 20, experimentPct: 10, note: '검색 비중이 높지만 신규 수요 발굴을 완전히 포기하지 않는 파일럿 구조.' },
+  { tier: 'Medium', monthlyBudgetKRW: 30000000, awarenessPct: 30, searchPct: 40, retargetingPct: 20, experimentPct: 10, note: '퍼널 전 단계 학습을 병행하며 크리에이티브 테스트와 검색 수확을 균형 있게 운영.' },
+  { tier: 'High', monthlyBudgetKRW: 100000000, awarenessPct: 35, searchPct: 35, retargetingPct: 20, experimentPct: 10, note: '브랜드 수요 확장과 채널 다각화를 동시에 추진하는 스케일 단계.' }
 ];
 
 export const performanceFormulas = [
@@ -473,77 +441,24 @@ export const performanceFormulas = [
 ];
 
 export const timelinePhases: TimelineItem[] = [
-  {
-    phase: 'foundation',
-    title: '트래킹 설계, GTM/GA4, 전환 API, UTM 규칙, 1차 UX 개선',
-    startWeek: 1,
-    durationWeeks: 3,
-    deliverables: ['측정 구조 설계', '대시보드 정의', '체크아웃 진단']
-  },
-  {
-    phase: 'creative',
-    title: '9:16 마스터 템플릿 제작과 SEO/초보자 콘텐츠 1차 발행',
-    startWeek: 2,
-    durationWeeks: 4,
-    deliverables: ['숏폼 템플릿', '롱폼 스크립트', '초보자 콘텐츠 허브']
-  },
-  {
-    phase: 'acquisition',
-    title: '구글/네이버 검색 파일럿과 Shorts/TikTok 인지 캠페인 런칭',
-    startWeek: 3,
-    durationWeeks: 4,
-    deliverables: ['검색 캠페인', '숏폼 캠페인', '초기 세그먼트 데이터']
-  },
-  {
-    phase: 'optimization',
-    title: '리타겟팅 시퀀스, A/B 테스트, 예산 재배분과 스케일',
-    startWeek: 5,
-    durationWeeks: 5,
-    deliverables: ['리타겟팅 룹', '카피/오퍼 테스트', '채널 재배분']
-  }
+  { phase: 'foundation', title: '트래킹 설계, GTM/GA4, 전환 API, UTM 규칙, 1차 UX 개선', startWeek: 1, durationWeeks: 3, deliverables: ['측정 구조 설계', '대시보드 정의', '체크아웃 진단'] },
+  { phase: 'creative', title: '9:16 마스터 템플릿 제작과 SEO/초보자 콘텐츠 1차 발행', startWeek: 2, durationWeeks: 4, deliverables: ['숏폼 템플릿', '롱폼 스크립트', '초보자 콘텐츠 허브'] },
+  { phase: 'acquisition', title: '구글/네이버 검색 파일럿과 Shorts/TikTok 인지 캠페인 런칭', startWeek: 3, durationWeeks: 4, deliverables: ['검색 캠페인', '숏폼 캠페인', '초기 세그먼트 데이터'] },
+  { phase: 'optimization', title: '리타겟팅 시퀀스, A/B 테스트, 예산 재배분과 스케일', startWeek: 5, durationWeeks: 5, deliverables: ['리타겟팅 룹', '카피/오퍼 테스트', '채널 재배분'] }
 ];
 
 export const complianceChecklist: ComplianceItem[] = [
-  {
-    title: '총액과 현지 지불 항목 분리 표기',
-    summary: '필수 비용은 총액에 포함하고, 현지 지불 항목은 별도 명시해 가격 인지 혼란을 줄여야 합니다.',
-    riskLevel: 'high'
-  },
-  {
-    title: '취소·환불 조건 요약 우선 노출',
-    summary: '세부 약관 링크만 제공하지 말고, 결제 전 핵심 정책을 먼저 보여줘야 분쟁 가능성이 낮아집니다.',
-    riskLevel: 'high'
-  },
-  {
-    title: '사업자 정보와 고객센터 상시 접근',
-    summary: '운영 시간, 연락처, 분쟁 처리 루트를 헤더/체크아웃에서 바로 찾을 수 있어야 합니다.',
-    riskLevel: 'medium'
-  },
-  {
-    title: '근거 없는 최상급 표현 금지',
-    summary: '최저가, 단독, 무조건과 같은 표현은 네이버·Google·Meta 정책과 동시에 충돌할 수 있습니다.',
-    riskLevel: 'high'
-  },
-  {
-    title: '광고와 랜딩의 일관성 유지',
-    summary: '광고에서 약속한 혜택, 가격, 정책 문구가 랜딩에서 동일하게 이어져야 신뢰가 유지됩니다.',
-    riskLevel: 'medium'
-  }
+  { title: '총액과 현지 지불 항목 분리 표기', summary: '필수 비용은 총액에 포함하고, 현지 지불 항목은 별도 명시해 가격 인지 혼란을 줄여야 합니다.', riskLevel: 'high' },
+  { title: '취소·환불 조건 요약 우선 노출', summary: '세부 약관 링크만 제공하지 말고, 결제 전 핵심 정책을 먼저 보여줘야 분쟁 가능성이 낮아집니다.', riskLevel: 'high' },
+  { title: '사업자 정보와 고객센터 상시 접근', summary: '운영 시간, 연락처, 분쟁 처리 루트를 헤더와 체크아웃에서 바로 찾을 수 있어야 합니다.', riskLevel: 'medium' },
+  { title: '근거 없는 최상급 표현 금지', summary: '최저가, 단독, 무조건과 같은 표현은 네이버·Google·Meta 정책과 동시에 충돌할 수 있습니다.', riskLevel: 'high' },
+  { title: '광고와 랜딩의 일관성 유지', summary: '광고에서 약속한 혜택, 가격, 정책 문구가 랜딩에서 동일하게 이어져야 신뢰가 유지됩니다.', riskLevel: 'medium' }
 ];
 
 export const nextSteps: NextStep[] = [
-  {
-    title: '진단',
-    description: '현재 트래픽, 전환 구조, AOV, 마진, 취소율, 검색 수요를 기준으로 파일럿 우선순위를 정의합니다.'
-  },
-  {
-    title: '파일럿',
-    description: '검색 + 숏폼 + 리타겟팅 조합으로 2~4주 테스트를 운영하며 open KPI를 실제 계정 데이터로 보정합니다.'
-  },
-  {
-    title: '스케일',
-    description: '성과가 검증된 채널과 세그먼트를 중심으로 예산을 재배분하고, SEO 및 프론트엔드 개편 프로젝트와 병행합니다.'
-  }
+  { title: '진단', description: '현재 트래픽, 전환 구조, AOV, 마진, 취소율, 검색 수요를 기준으로 파일럿 우선순위를 정의합니다.' },
+  { title: '파일럿', description: '검색 + 숏폼 + 리타겟팅 조합으로 2~4주 테스트를 운영하며 open KPI를 실제 계정 데이터로 보정합니다.' },
+  { title: '스케일', description: '성과가 검증된 채널과 세그먼트를 중심으로 예산을 재배분하고, SEO 및 프론트엔드 개편 프로젝트와 병행합니다.' }
 ];
 
 export const prerequisiteData = ['AOV', '마진율', '취소율', '현재 트래픽', '현재 전환율', '선사/항로별 재고 구조'];

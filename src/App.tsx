@@ -8,6 +8,7 @@ import {
   creativeSpecs,
   creativeTracks,
   customEvents,
+  earlyMarketSources,
   eventSteps,
   funnelStages,
   heroSummary,
@@ -72,11 +73,12 @@ const App: React.FC = () => (
     </header>
 
     <main className="proposal-main">
-      <HeroSection hero={heroSummary} stats={marketStats} />
+      <HeroSection hero={heroSummary} stats={marketStats} sectionSources={earlyMarketSources} />
       <MarketContextSection
         valueProps={valueProps}
         certaintyDrivers={certaintyDrivers}
         positioningPoints={positioningPoints}
+        sectionSources={earlyMarketSources}
       />
       <FunnelSection stages={funnelStages} />
       <KpiSection rows={kpiFramework} stages={funnelStages} eventSteps={eventSteps} customEvents={customEvents} />

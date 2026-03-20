@@ -1,13 +1,14 @@
 import React from 'react';
 import { ArrowDownRight, Compass, Radar, Waves } from 'lucide-react';
-import { HeroSummary, MarketStat } from '../../types/proposal';
+import { HeroSummary, MarketStat, SourceReference } from '../../types/proposal';
 
 type HeroSectionProps = {
   hero: HeroSummary;
   stats: MarketStat[];
+  sectionSources: SourceReference[];
 };
 
-export const HeroSection: React.FC<HeroSectionProps> = ({ hero, stats }) => (
+export const HeroSection: React.FC<HeroSectionProps> = ({ hero, stats, sectionSources }) => (
   <section className="hero-panel">
     <div className="hero-panel__content">
       <div className="hero-copy">
@@ -60,7 +61,24 @@ export const HeroSection: React.FC<HeroSectionProps> = ({ hero, stats }) => (
           <span className="stat-card__label">{stat.label}</span>
           <strong className="stat-card__value">{stat.value}</strong>
           <p>{stat.detail}</p>
+          {stat.sources?.length ? (
+            <div className="source-links">
+              {stat.sources.map((source) => (
+                <a className="source-link" key={`${stat.label}-${source.url}`} href={source.url} target="_blank" rel="noreferrer">
+                  출처: {source.label}
+                </a>
+              ))}
+            </div>
+          ) : null}
         </article>
+      ))}
+    </div>
+
+    <div className="section-source-strip">
+      {sectionSources.map((source) => (
+        <a className="source-link" key={source.url} href={source.url} target="_blank" rel="noreferrer">
+          출처: {source.label}
+        </a>
       ))}
     </div>
   </section>

@@ -1,18 +1,20 @@
 import React from 'react';
 import { ArrowRight, ShieldCheck } from 'lucide-react';
-import { CertaintyDriver, PositioningPoint, ValueProp } from '../../types/proposal';
+import { CertaintyDriver, PositioningPoint, SourceReference, ValueProp } from '../../types/proposal';
 import { SectionShell } from './SectionShell';
 
 type MarketContextSectionProps = {
   valueProps: ValueProp[];
   certaintyDrivers: CertaintyDriver[];
   positioningPoints: PositioningPoint[];
+  sectionSources: SourceReference[];
 };
 
 export const MarketContextSection: React.FC<MarketContextSectionProps> = ({
   valueProps,
   certaintyDrivers,
-  positioningPoints
+  positioningPoints,
+  sectionSources
 }) => (
   <SectionShell
     id="market"
@@ -25,6 +27,15 @@ export const MarketContextSection: React.FC<MarketContextSectionProps> = ({
         <article className="glass-card" key={item.title}>
           <h3>{item.title}</h3>
           <p>{item.description}</p>
+          {item.sources?.length ? (
+            <div className="source-links">
+              {item.sources.map((source) => (
+                <a className="source-link" key={`${item.title}-${source.url}`} href={source.url} target="_blank" rel="noreferrer">
+                  출처: {source.label}
+                </a>
+              ))}
+            </div>
+          ) : null}
         </article>
       ))}
     </div>
@@ -65,6 +76,15 @@ export const MarketContextSection: React.FC<MarketContextSectionProps> = ({
             <div className="positioning-legend__item" key={point.name}>
               <strong>{point.name}</strong>
               <p>{point.description}</p>
+              {point.sources?.length ? (
+                <div className="source-links">
+                  {point.sources.map((source) => (
+                    <a className="source-link" key={`${point.name}-${source.url}`} href={source.url} target="_blank" rel="noreferrer">
+                      출처: {source.label}
+                    </a>
+                  ))}
+                </div>
+              ) : null}
             </div>
           ))}
         </div>
@@ -79,6 +99,14 @@ export const MarketContextSection: React.FC<MarketContextSectionProps> = ({
       <span>정책 신뢰</span>
       <ArrowRight size={18} />
       <span>즉시 확정</span>
+    </div>
+
+    <div className="section-source-strip">
+      {sectionSources.map((source) => (
+        <a className="source-link" key={source.url} href={source.url} target="_blank" rel="noreferrer">
+          출처: {source.label}
+        </a>
+      ))}
     </div>
   </SectionShell>
 );
