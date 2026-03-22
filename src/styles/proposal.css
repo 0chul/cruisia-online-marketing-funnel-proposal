@@ -1368,6 +1368,17 @@ h1, h2, h3, h4, h5, h6, p, li, span {
   font-size: 1rem;
 }
 
+.roadmap-row__label .pill-cluster {
+  gap: 6px;
+  margin-top: 10px;
+}
+
+.roadmap-row__label .pill {
+  padding: 4px 10px;
+  font-size: 0.8rem;
+  letter-spacing: -0.02em;
+}
+
 .roadmap-row__track {
   display: grid;
   grid-template-columns: repeat(12, minmax(0, 1fr));
