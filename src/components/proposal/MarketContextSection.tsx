@@ -44,7 +44,7 @@ export const MarketContextSection: React.FC<MarketContextSectionProps> = ({
       <article className="devils-advocate">
         <div className="devils-advocate__header">
           <ShieldCheck size={18} />
-          <strong>악마의 변호인 관점</strong>
+          <strong>핵심 전환 리스크 점검</strong>
         </div>
         <p>사용자는 “실시간”만 보고 결제하지 않습니다. 실제 구매를 만드는 것은 실시간이 만들어내는 확실성입니다.</p>
         <div className="certainty-list">
