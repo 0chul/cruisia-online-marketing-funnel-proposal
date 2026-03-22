@@ -470,8 +470,8 @@ export const budgetScenarioPlans: BudgetScenario[] = [
   {
     tier: 'Medium',
     monthlyBudgetKRW: 10000000,
-    operatingPct: 50,
-    executionPct: 50,
+    operatingPct: 35,
+    executionPct: 65,
     mediaPctWithinExecution: 70,
     productionPctWithinExecution: 30,
     positioning: '수요 포착과 신규 수요 생성의 균형을 맞추는 본격 테스트 단계',
@@ -497,8 +497,8 @@ export const budgetScenarioPlans: BudgetScenario[] = [
   {
     tier: 'High',
     monthlyBudgetKRW: 15000000,
-    operatingPct: 50,
-    executionPct: 50,
+    operatingPct: 25,
+    executionPct: 75,
     mediaPctWithinExecution: 70,
     productionPctWithinExecution: 30,
     positioning: '브랜드 수요 생성과 고관여 리타겟팅을 동시에 확장하는 스케일 단계',
