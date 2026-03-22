@@ -21,13 +21,13 @@ export const BudgetSection: React.FC<BudgetSectionProps> = ({ scenarios, formula
       id="budget"
       eyebrow="Budget Scenarios"
       title="예산은 운영과 집행을 분리해서 보고, 집행 안에서 매체비와 제작비를 다시 쪼개야 실제 실행안이 선명해집니다."
-      description="제안 예산은 모든 구간에서 운영과 집행을 1:1로 두고, 집행 예산 안에서는 매체비와 제작비를 7:3으로 설계했습니다. 즉 총액 기준으로는 운영 50%, 매체비 35%, 제작비 15% 구조입니다."
+      description="제안 예산은 스케일 요소에 따라 운영 비중을 효율적으로 낮춰가며, 집행 예산 안에서는 매체비와 제작비를 7:3으로 고정 설계했습니다."
     >
       <div className="budget-architecture">
         <div className="budget-architecture__summary">
           <span className="section-kicker">Budget Structure</span>
-          <h3>운영 50% / 집행 50%</h3>
-          <p>집행 예산은 다시 매체비 70%, 제작비 30%로 분해합니다. 퍼포먼스 운영 인력과 분석 리소스를 충분히 확보하면서도, 실제 집행과 제작 품질을 동시에 관리하기 위한 구조입니다.</p>
+          <h3>규모별 유동적 운영 비중 (25~50%)</h3>
+          <p>파일럿 단계에서는 퍼포먼스 분석 리소스 비중이 높지만, 예산이 확장될수록 매체비와 제작비의 실집행 비중(65~75%)을 늘려 광고 효율을 극대화합니다.</p>
         </div>
 
         <div className="budget-architecture__legend">
@@ -41,8 +41,8 @@ export const BudgetSection: React.FC<BudgetSectionProps> = ({ scenarios, formula
 
         <div className="budget-architecture__ratios">
           <div className="budget-ratio-card">
-            <strong>총액 기준</strong>
-            <p>운영 50% / 매체비 35% / 제작비 15%</p>
+            <strong>운영 및 집행 비중</strong>
+            <p>예산 규모에 따라 제한적 운영비(25~50%) 적용</p>
           </div>
           <div className="budget-ratio-card">
             <strong>집행 내부 비중</strong>
