@@ -65,6 +65,11 @@ select {
   font: inherit;
 }
 
+h1, h2, h3, h4, h5, h6, p, li, span {
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
 #root {
   isolation: isolate;
 }
@@ -255,13 +260,14 @@ select {
   z-index: 1;
   margin: 0;
   font-size: clamp(3rem, 6vw, 5.8rem);
-  line-height: 1;
+  line-height: 1.15;
   letter-spacing: -0.04em;
   background: linear-gradient(to bottom right, #ffffff, #a1b2d3);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
   text-shadow: 0 4px 32px rgba(255, 255, 255, 0.1);
+  word-break: keep-all;
 }
 
 .hero-copy p {
@@ -272,6 +278,7 @@ select {
   color: var(--muted);
   font-size: 1.04rem;
   line-height: 1.8;
+  word-break: keep-all;
 }
 
 .hero-actions {
@@ -510,7 +517,9 @@ select {
 .section-header h2 {
   margin: 0;
   font-size: clamp(2.3rem, 4vw, 4.5rem);
-  line-height: 1;
+  line-height: 1.15;
+  word-break: keep-all;
+  overflow-wrap: break-word;
 }
 
 .section-header p {
@@ -518,6 +527,7 @@ select {
   color: var(--muted);
   line-height: 1.85;
   font-size: 1rem;
+  word-break: keep-all;
 }
 
 .section-body {
