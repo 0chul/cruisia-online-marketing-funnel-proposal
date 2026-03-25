@@ -14,6 +14,11 @@ import {
   MeasurementNode,
   NextStep,
   PositioningPoint,
+  RevenueScaleExample,
+  RevenueScaleFlowStep,
+  RevenueScaleNote,
+  RevenueScalePrinciple,
+  RevenueScaleStage,
   RetargetingStep,
   TimelineItem,
   UxLayer,
@@ -525,6 +530,75 @@ export const budgetScenarioPlans: BudgetScenario[] = [
     note: '신규 수요 생성, 버티컬 확장, 영상 자산 축적까지 포함한 브랜드형 운영이 가능한 예산 구간입니다.'
   }
 ];
+
+export const revenueScalePrinciples: RevenueScalePrinciple[] = [
+  {
+    title: '선집행 후 회수 구조가 아니라, 매출 확인 후 증액 구조',
+    description: '광고비를 먼저 무리하게 키우는 방식이 아니라, 예약 발생과 CPA·ROAS 안정화가 확인된 구간부터 증액합니다.'
+  },
+  {
+    title: '광고비 증가 = 매출 증가를 전제로 한 운전자본 확대',
+    description: 'OTA 운영사 입장에서는 광고 집행이 실제 예약 건수와 연결될 때만 예산 확대가 가능하다는 점을 전제로 설계합니다.'
+  },
+  {
+    title: '스케일의 기준은 볼륨이 아니라 재현 가능한 효율',
+    description: '클릭 수가 아니라 CPA, ROAS, 취소율, 상담 품질 같은 실질 지표가 유지될 때만 다음 단계로 넘어갑니다.'
+  }
+];
+
+export const revenueScaleStages: RevenueScaleStage[] = [
+  {
+    title: '파일럿 집행',
+    description: '검색, 리타겟팅, 핵심 크리에이티브 위주로 최소 구조를 테스트합니다.'
+  },
+  {
+    title: '예약 매출 검증',
+    description: '실제 예약 발생 여부와 객단가, 취소율, ROAS를 체크해 광고비의 회수 가능성을 확인합니다.'
+  },
+  {
+    title: '효율 유지 구간 확인',
+    description: '예산을 소폭 늘려도 CPA와 ROAS가 유지되는지 확인해 안전한 증액 범위를 찾습니다.'
+  },
+  {
+    title: '예산 증액 및 채널 확장',
+    description: '검증된 구조를 기반으로 Meta prospecting, YouTube, 버티컬 매체, 제휴 채널까지 확장합니다.'
+  }
+];
+
+export const revenueScaleExamples: RevenueScaleExample[] = [
+  {
+    label: 'Stage A',
+    monthlyAdSpendKRW: 5000000,
+    exampleRevenueKRW: 20000000,
+    implication: '검색+리타겟팅 중심으로 초기 전환 구조를 검증하는 구간입니다.'
+  },
+  {
+    label: 'Stage B',
+    monthlyAdSpendKRW: 10000000,
+    exampleRevenueKRW: 40000000,
+    implication: '검증된 구조를 유지한 채 신규 유입 채널을 넓히는 성장 구간입니다.'
+  },
+  {
+    label: 'Stage C',
+    monthlyAdSpendKRW: 15000000,
+    exampleRevenueKRW: 60000000,
+    implication: '예약 볼륨이 확인된 뒤 영상, 버티컬, 제휴까지 확장하는 스케일 구간입니다.'
+  }
+];
+
+export const revenueScaleFlow: RevenueScaleFlowStep[] = [
+  { label: '광고비 집행' },
+  { label: '예약 발생' },
+  { label: '매출 회수' },
+  { label: '효율 검증' },
+  { label: '다음 달 증액' }
+];
+
+export const revenueScaleNote: RevenueScaleNote = {
+  title: '매출 연동형 증액 원칙',
+  description:
+    '크루즈 OTA는 광고 예산이 커지는 만큼 실제 예약 매출도 동반 상승할 수 있는 구조입니다. 중요한 것은 최저 예산을 유지하는 것이 아니라, 효율이 유지되는 범위에서 얼마나 건강하게 증액하느냐입니다. 이 제안의 핵심은 비용 절감이 아니라, 검증된 매출 회수 구조를 만드는 데 있습니다. 실제 수치는 AOV, 마진율, 취소율, 정산 구조에 따라 조정합니다.'
+};
 
 export const timelinePhases: TimelineItem[] = [
   { phase: 'foundation', title: '트래킹 설계, GTM/GA4, 전환 API, UTM 규칙, 1차 UX 개선', startWeek: 1, durationWeeks: 3, deliverables: ['측정 구조 설계', '대시보드 정의', '체크아웃 진단'] },

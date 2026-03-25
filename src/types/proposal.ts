@@ -85,6 +85,32 @@ export type BudgetScenario = {
   note: string;
 };
 
+export type RevenueScalePrinciple = {
+  title: string;
+  description: string;
+};
+
+export type RevenueScaleStage = {
+  title: string;
+  description: string;
+};
+
+export type RevenueScaleExample = {
+  label: string;
+  monthlyAdSpendKRW: number;
+  exampleRevenueKRW: number;
+  implication: string;
+};
+
+export type RevenueScaleFlowStep = {
+  label: string;
+};
+
+export type RevenueScaleNote = {
+  title: string;
+  description: string;
+};
+
 export type TimelineItem = {
   phase: 'foundation' | 'creative' | 'acquisition' | 'optimization';
   title: string;

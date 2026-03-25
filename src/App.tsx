@@ -19,6 +19,11 @@ import {
   performanceFormulas,
   positioningPoints,
   prerequisiteData,
+  revenueScaleExamples,
+  revenueScaleFlow,
+  revenueScaleNote,
+  revenueScalePrinciples,
+  revenueScaleStages,
   retargetingSequence,
   timelinePhases,
   utmRules,
@@ -37,6 +42,7 @@ import { HeroSection } from './components/proposal/HeroSection';
 import { KpiSection } from './components/proposal/KpiSection';
 import { MarketContextSection } from './components/proposal/MarketContextSection';
 import { MeasurementSection } from './components/proposal/MeasurementSection';
+import { RevenueScaleSection } from './components/proposal/RevenueScaleSection';
 import { RoadmapSection } from './components/proposal/RoadmapSection';
 import { UxSection } from './components/proposal/UxSection';
 
@@ -91,6 +97,13 @@ const App: React.FC = () => (
       <UxSection layers={uxLayers} recommendations={uxRecommendations} />
       <MeasurementSection nodes={measurementStack} utmRules={utmRules} />
       <BudgetSection scenarios={budgetScenarioPlans} formulas={performanceFormulas} />
+      <RevenueScaleSection
+        principles={revenueScalePrinciples}
+        stages={revenueScaleStages}
+        examples={revenueScaleExamples}
+        flow={revenueScaleFlow}
+        note={revenueScaleNote}
+      />
       <RoadmapSection items={timelinePhases} />
       <ComplianceSection items={complianceChecklist} />
       <ClosingSection steps={nextSteps} prerequisiteData={prerequisiteData} />
