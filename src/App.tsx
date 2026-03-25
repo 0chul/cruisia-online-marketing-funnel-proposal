@@ -111,8 +111,15 @@ const App: React.FC = () => (
 
     <footer className="proposal-footer">
       <div className="proposal-footer__inner">
-        Cruisia의 제안 포인트는 실시간 데이터 자체가 아니라, 그 데이터가 만드는 구매 확실성을 광고와 랜딩,
-        체크아웃, CRM에 일관되게 반영하는 것입니다.
+        <p>
+          Cruisia의 제안 포인트는 실시간 데이터 자체가 아니라, 그 데이터가 만드는 구매 확실성을 광고와 랜딩,
+          체크아웃, CRM에 일관되게 반영하는 것입니다.
+        </p>
+        <div className="proposal-footer__contact">
+          <span className="section-kicker">Contact</span>
+          <a href="tel:01080086155">010-8008-6155</a>
+          <a href="mailto:wprkfqkdrn@naver.com">wprkfqkdrn@naver.com</a>
+        </div>
       </div>
     </footer>
   </div>
