@@ -164,7 +164,7 @@ export const funnelStages: FunnelStage[] = [
     id: 'consideration',
     title: 'Consideration',
     objective: '상품 비교와 shortlist 생성을 지원하는 단계',
-    kpis: ['view_item', 'save', 'begin_checkout', '재방문율'],
+    kpis: ['상품 상세 조회', '관심 상품 저장', '예약 정보 입력 시작', '재방문율'],
     channels: ['Google Ads Search', 'Naver Search', 'Meta Retargeting', 'OTA 제휴'],
     message: '너무 많은 선택지를 대신 구조화해 선사, 일정, 선실, 포함사항을 빠르게 판단하게 만듭니다.',
     deliverables: ['비교표', '카탈로그형 소재', '항로별 상세 페이지', '저장·가격 알림 기능'],
@@ -188,7 +188,7 @@ export const funnelStages: FunnelStage[] = [
     id: 'purchase',
     title: 'Purchase',
     objective: '결제와 예약 확정 완료',
-    kpis: ['purchase', 'CVR', 'CPA', 'ROAS'],
+    kpis: ['예약 완료', 'CVR', 'CPA', 'ROAS'],
     channels: ['Google/Naver Search', 'RLSA', '체크아웃 이탈 리마케팅'],
     message: '구매 전환은 광고 효율보다 정책 신뢰, 입력 마찰 제거, 결제 직전 불안 해소가 좌우합니다.',
     deliverables: ['간결한 폼 구조', '게스트 체크아웃', '결제 직전 FAQ', '예약 완료 화면'],
@@ -213,21 +213,21 @@ export const funnelStages: FunnelStage[] = [
 export const kpiFramework: KpiRow[] = [
   { stageId: 'awareness', primary: ['Reach', 'CPM', 'ThruPlay'], secondary: ['CTR', '브랜드 검색량', '사이트 체류'], targetPolicy: 'open' },
   { stageId: 'interest', primary: ['LP CVR', 'On-site Search 사용률'], secondary: ['CPC', 'CTR', 'Engaged Sessions'], targetPolicy: 'open' },
-  { stageId: 'consideration', primary: ['view_item', 'save', 'begin_checkout'], secondary: ['재방문율', '구독 전환'], targetPolicy: 'open' },
+  { stageId: 'consideration', primary: ['상품 상세 조회', '관심 상품 저장', '예약 정보 입력 시작'], secondary: ['재방문율', '구독 전환'], targetPolicy: 'open' },
   { stageId: 'intent', primary: ['Checkout Progression', '가격 알림 등록'], secondary: ['문의율', '세션 깊이'], targetPolicy: 'open' },
-  { stageId: 'purchase', primary: ['purchase', 'CPA', 'ROAS'], secondary: ['결제 실패율', '취소율'], targetPolicy: 'open' },
+  { stageId: 'purchase', primary: ['예약 완료', 'CPA', 'ROAS'], secondary: ['결제 실패율', '취소율'], targetPolicy: 'open' },
   { stageId: 'retention', primary: ['Repeat Purchase', 'Referral'], secondary: ['리뷰 생성률', 'CRM CTR'], targetPolicy: 'open' }
 ];
 
 export const eventSteps: EventStep[] = [
-  { name: 'view_item_list', description: '검색 결과와 항로 리스트를 본 순간부터 탐색 데이터를 축적합니다.' },
-  { name: 'view_item', description: '선사·선박·일정·선실 상세 진입을 확인합니다.' },
-  { name: 'begin_checkout', description: '탑승자 정보 입력 시작을 전환 직전 신호로 잡습니다.' },
-  { name: 'add_payment_info', description: '결제 수단 선택과 마지막 확신 구간을 측정합니다.' },
-  { name: 'purchase', description: '예약·결제 확정을 핵심 비즈니스 이벤트로 기록합니다.' }
+  { name: '검색 결과·상품 목록 조회', description: '검색 결과와 항로 리스트를 본 순간부터 탐색 데이터를 축적합니다.' },
+  { name: '상품 상세 조회', description: '선사·선박·일정·선실 상세 진입을 확인합니다.' },
+  { name: '예약 정보 입력 시작', description: '탑승자 정보 입력 시작을 전환 직전 신호로 봅니다.' },
+  { name: '결제 정보 입력', description: '결제 수단 선택과 마지막 확신 구간을 측정합니다.' },
+  { name: '예약 완료', description: '예약·결제 확정을 핵심 비즈니스 지표로 기록합니다.' }
 ];
 
-export const customEvents = ['cruise_search', 'date_selected', 'cabin_selected', 'price_alert_set'];
+export const customEvents = ['크루즈 검색 실행', '출발일 선택', '객실 선택', '가격 알림 신청'];
 
 export const channelPlaybook: ChannelPlay[] = [
   {
@@ -287,8 +287,8 @@ export const channelPlaybook: ChannelPlay[] = [
     audience: '비교·가격 확인·예약 직전의 고의도 검색층',
     tone: '구체적이고 명확한 검색 의도 대응형',
     recommendedAssets: ['RSA 카피', '가격·정책 랜딩', '체크아웃 리마케팅'],
-    measurementFocus: ['purchase', 'CPA', 'ROAS', '검색어 품질'],
-    operatingRisk: '전환 이벤트를 purchase 하나만 두면 학습 속도가 지나치게 느립니다.'
+    measurementFocus: ['예약 완료', 'CPA', 'ROAS', '검색어 품질'],
+    operatingRisk: '전환 지표를 예약 완료 하나만 두면 학습 속도가 지나치게 느립니다.'
   },
   {
     channel: 'Naver Search',
@@ -317,7 +317,7 @@ export const channelPlaybook: ChannelPlay[] = [
     audience: '검색·비교·체크아웃 이탈자',
     tone: '재설명보다 확신 강화 중심',
     recommendedAssets: ['가격 포함내역 배너', '정책형 배너', '관심 항로 재노출'],
-    measurementFocus: ['세그먼트별 복귀율', '재방문 후 purchase'],
+    measurementFocus: ['세그먼트별 복귀율', '재방문 후 예약 완료'],
     operatingRisk: '재방문 이유가 없는 단순 반복 노출은 브랜드 피로만 키웁니다.'
   },
   {
@@ -368,8 +368,8 @@ export const channelPlaybook: ChannelPlay[] = [
 ];
 
 export const retargetingSequence: RetargetingStep[] = [
-  { window: '1~3일', audience: 'view_item 또는 cabin_selected 사용자', message: '해당 일정의 핵심 포인트 3개와 취소/환불 요약을 바로 제시해 첫 이탈 이유를 차단합니다.' },
-  { window: '4~14일', audience: 'begin_checkout 이탈자', message: '총액 투명성, 포함 내역, 고객센터 연결, 예약 확정 프로세스를 전면에 내세웁니다.' },
+  { window: '1~3일', audience: '상품 상세를 보거나 객실을 고른 사용자', message: '해당 일정의 핵심 포인트 3개와 취소/환불 요약을 바로 제시해 첫 이탈 이유를 차단합니다.' },
+  { window: '4~14일', audience: '예약 정보 입력 단계에서 이탈한 사용자', message: '총액 투명성, 포함 내역, 고객센터 연결, 예약 확정 프로세스를 전면에 내세웁니다.' },
   { window: '15~60일', audience: '관심 항로 저장 또는 장기 미전환 사용자', message: '기항지 가이드, 시즌별 추천, 가격 알림 기반 콘텐츠로 재관심을 유도합니다.' }
 ];
 
@@ -410,7 +410,7 @@ export const uxRecommendations: UxRecommendation[] = [
 ];
 
 export const measurementStack: MeasurementNode[] = [
-  { title: 'GA4 Ecommerce Layer', detail: 'view_item_list부터 purchase까지 권장 이벤트 체계를 Cruisia 특화 이벤트와 함께 운영합니다.' },
+  { title: 'GA4 Ecommerce Layer', detail: '상품 목록 조회부터 예약 완료까지의 핵심 행동 흐름을 Cruisia 특화 이벤트와 함께 운영합니다.' },
   { title: 'GTM & Tag Governance', detail: '태그, 전환 링크, UTM 명명 규칙을 단일 기준으로 관리해 리포트 파편화를 방지합니다.' },
   { title: 'Meta CAPI + Pixel', detail: '브라우저와 서버 이벤트를 함께 보내고 eventID로 중복을 제거해 신호 품질을 높입니다.' },
   { title: 'Enhanced Conversions', detail: 'Google Ads의 해시 처리된 자사 데이터를 활용해 검색 전환 측정 정확도를 보강합니다.' },
